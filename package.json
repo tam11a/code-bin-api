@@ -1,0 +1,22 @@
+{
+  "name": "u-bin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.25.6",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.6.0"
+  }
+}
