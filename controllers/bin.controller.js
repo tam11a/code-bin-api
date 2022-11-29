@@ -2,10 +2,13 @@ const Bin = require("../models").bins;
 
 exports.get = async (req, res, next) => {
   try {
+    const { count, rows } = await Bin.findAndCountAll({
+      // attributes: ["id", "userName", "createdAt"],
+    });
     res.status(200).json({
       success: true,
-      message: "Executed successfully",
-      // data: await Bin.
+      data: rows,
+      total: count,
     });
     // On Error
   } catch (error) {
@@ -25,6 +28,8 @@ exports.create = async (req, res, next) => {
           "language",
           "description",
           "password",
+          "userId",
+          "projectId",
         ],
       }
     );
