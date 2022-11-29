@@ -1,11 +1,14 @@
-const Bin = require("../models").bins;
+const User = require("../models").users;
 
 exports.get = async (req, res, next) => {
   try {
+    const { count, rows } = await User.findAndCountAll({
+      attributes: ["id", "userName", "createdAt"],
+    });
     res.status(200).json({
       success: true,
-      message: "Executed successfully",
-      // data: await Bin.
+      data: rows,
+      total: count,
     });
     // On Error
   } catch (error) {
@@ -16,22 +19,16 @@ exports.get = async (req, res, next) => {
 
 exports.create = async (req, res, next) => {
   try {
-    const data = await Bin.create(
+    const data = await User.create(
       { ...req.body },
       {
-        fields: [
-          "fileName",
-          "sourceCode",
-          "language",
-          "description",
-          "password",
-        ],
+        fields: ["userName", "password"],
       }
     );
 
     res.status(201).json({
       success: true,
-      message: "Bin created successfully",
+      message: "User created successfully",
       data,
     });
     // On Error

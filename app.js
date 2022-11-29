@@ -55,6 +55,7 @@ app.get("/", function (req, res) {
 });
 
 app.use("/api/bin", require("./routes/bin.route"));
+app.use("/api/user", require("./routes/user.route"));
 
 // Add Swagger UI to Home Page
 app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerJSDoc(swaggerOptions)));

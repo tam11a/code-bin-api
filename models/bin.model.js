@@ -4,15 +4,24 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    code: {
+    sourceCode: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    fileType: {
+    language: {
       type: Sequelize.STRING,
       allowNull: false,
     },
     description: {
+      type: Sequelize.STRING,
+    },
+    // project: {
+    //   type: Sequelize.STRING,
+    // },
+    // author: {
+    //   type: Sequelize.STRING,
+    // },
+    password: {
       type: Sequelize.STRING,
     },
   });
@@ -28,15 +37,21 @@ module.exports = (sequelize, Sequelize) => {
  *     type: object
  *     required:
  *        - fileName
- *        - fileType
- *        - code
+ *        - language
+ *        - sourceCode
  *     properties:
  *       fileName:
  *         type: string
- *       code:
+ *       sourceCode:
  *         type: string
- *       fileType:
+ *       language:
  *         type: string
  *       description:
+ *         type: string
+ *       projectId:
+ *         type: string
+ *       userId:
+ *         type: string
+ *       password:
  *         type: string
  */
