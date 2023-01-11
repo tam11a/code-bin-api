@@ -1,32 +1,39 @@
 module.exports = (sequelize, Sequelize) => {
-  const Bin = sequelize.define("bin", {
-    fileName: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    sourceCode: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    language: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: Sequelize.STRING,
-    },
-    // project: {
-    //   type: Sequelize.STRING,
-    // },
-    // author: {
-    //   type: Sequelize.STRING,
-    // },
-    password: {
-      type: Sequelize.STRING,
-    },
-  });
+	const Bin = sequelize.define("bin", {
+		summary: {
+			type: Sequelize.STRING,
+			allowNull: false,
+		},
+		fileName: {
+			type: Sequelize.STRING,
+			allowNull: false,
+		},
+		sourceCode: {
+			type: Sequelize.TEXT("long"),
+			allowNull: false,
+		},
+		language: {
+			type: Sequelize.STRING,
+			allowNull: false,
+		},
+		description: {
+			type: Sequelize.STRING,
+		},
+		password: {
+			type: Sequelize.STRING,
+		},
+		// isPrivate: {
+		// 	type: Sequelize.VIRTUAL,
+		// 	get() {
+		// 		return !!this.password;
+		// 	},
+		// 	set() {
+		// 		throw new Error("Do not try to set the `isPrivate` value!");
+		// 	},
+		// },
+	});
 
-  return Bin;
+	return Bin;
 };
 
 /**
@@ -40,6 +47,8 @@ module.exports = (sequelize, Sequelize) => {
  *        - language
  *        - sourceCode
  *     properties:
+ *       summary:
+ *         type: string
  *       fileName:
  *         type: string
  *       sourceCode:
@@ -47,10 +56,6 @@ module.exports = (sequelize, Sequelize) => {
  *       language:
  *         type: string
  *       description:
- *         type: string
- *       projectId:
- *         type: string
- *       userId:
  *         type: string
  *       password:
  *         type: string
